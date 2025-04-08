@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
+use illuminate\auth\Middleware\Authenticate;
 use App\Http\Controllers\PasienController;
 
 
@@ -11,9 +13,11 @@ use App\Http\Controllers\PasienController;
 // Route::get('profil' ,function(){
 //     return 'hello world';       
 // });
+route::middleware(authenticate::class)->group(function(){
+    route::resource('pasien', PasienController::class);
+});
 
 
-route::resource('pasien', PasienController::class);
 
 
 Route::get('/', function () {
