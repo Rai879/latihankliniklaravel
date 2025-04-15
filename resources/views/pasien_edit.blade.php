@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => 'Edit Data'])
+@extends('layouts.app_modern', ['title' => 'Edit Data'])
 @section('content')
     <div class="card">
         <div class="card-body">
