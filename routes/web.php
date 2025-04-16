@@ -7,7 +7,7 @@ use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\MatakuliahController;
 use illuminate\auth\Middleware\Authenticate;
 use App\Http\Controllers\PasienController;
-
+use App\Http\Controllers\PolisController;
 
 // route::resource('matakuliah', MatakuliahController::class);
 // Route::get('mahasiswa',[MahasiswaController::class, 'index']);
@@ -17,6 +17,7 @@ use App\Http\Controllers\PasienController;
 route::middleware(authenticate::class)->group(function(){
     route::resource('pasien', PasienController::class);
     route::resource('daftar', DaftarController::class);
+    Route::resource('polis', PolisController::class);
 });
 
 

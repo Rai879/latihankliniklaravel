@@ -5,6 +5,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
   <link rel="shortcut icon" type="image/png" href="{{ asset('modern/src/assets/images/logos/favicon.png') }}" />
   <link rel="stylesheet" href="{{ asset('modern/src/assets/css/styles.min.css') }}" />
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   
 </head>
 
@@ -39,36 +40,36 @@
                 <span class="hide-menu">Pasien</span>
               </a>
             </li>
-            <li class="nav-small-cap">
-              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
-              <span class="hide-menu">Tools</span>
-            </li>
             <li class="sidebar-item">
               <a class="sidebar-link" href="{{asset('pasien/create')}}" aria-expanded="false">
                 <span>
                   <i class="ti ti-user"></i>
                 </span>
+                <span class="hide-menu">Tambah Pasien</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+              <span class="hide-menu">Tools</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{asset('daftar')}}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-alert-circle"></i>
+                </span>
+                <span class="hide-menu">Pendaftaran</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{asset('daftar/create')}}" aria-expanded="false">
+                <span>
+                  <i class="ti ti-cards"></i>
+                </span>
                 <span class="hide-menu">Tambah Data</span>
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-alerts.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-alert-circle"></i>
-                </span>
-                <span class="hide-menu">Alerts</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-card.html" aria-expanded="false">
-                <span>
-                  <i class="ti ti-cards"></i>
-                </span>
-                <span class="hide-menu">Card</span>
-              </a>
-            </li>
-            <li class="sidebar-item">
-              <a class="sidebar-link" href="./ui-forms.html" aria-expanded="false">
+              <a class="sidebar-link" href="./ui-typography.html" aria-expanded="false">
                 <span>
                   <i class="ti ti-file-description"></i>
                 </span>
@@ -201,6 +202,13 @@
   <script src="{{ asset('modern/src/assets/js/sidebarmenu.js') }}"></script>
   <script src="{{ asset('modern/src/assets/js/app.min.js') }}"></script>
   <script src="{{ asset('modern/src/assets/libs/simplebar/dist/simplebar.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+  <script>
+    $(document).ready(function() {
+      $('.select2').select2();
+    });
+  </script>
 </body>
 
 </html>
