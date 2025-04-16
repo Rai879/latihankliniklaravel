@@ -1,4 +1,5 @@
 @extends('layouts.app_modern', ['title' => 'Tambah Data Pasien'])
+
 @section('content')
     <div class="card">
         <div class="card-body">

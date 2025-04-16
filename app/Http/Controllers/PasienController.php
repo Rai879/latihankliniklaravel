@@ -114,12 +114,14 @@ class PasienController extends Controller
      */
     public function destroy(string $id)
     {
-        Pasien::findOrFail($id)->delete();
-        if ($pasien->daftar->count() >=1) {
+        $pasien = \App\Models\Pasien::findOrFail($id);
+
+        // Debugging: Check if $pasien is retrieved correctly
+        // dd($pasien);
+
+        if ($pasien->daftar->count() >= 1) {
             return back()->with('pesan', 'Data tidak bisa dihapus karena sudah terdaftar');
         }
-
-        $pasien = \App\Models\Pasien::findOrFail($id);
         if ($pasien->photo && file_exists(public_path($pasien->photo))) {
             unlink(public_path($pasien->photo));
         }

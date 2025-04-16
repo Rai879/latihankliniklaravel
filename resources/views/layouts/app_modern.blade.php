@@ -1,10 +1,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Kllinik Test</title>
+  <title>{{ $title ?? 'Klinik' }}</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
-  <link rel="shortcut icon" type="image/png" href="modern/src/assets/images/logos/favicon.png" />
-  <link rel="stylesheet" href="modern/src/assets/css/styles.min.css" />
+  <link rel="shortcut icon" type="image/png" href="{{ asset('modern/src/assets/images/logos/favicon.png') }}" />
+  <link rel="stylesheet" href="{{ asset('modern/src/assets/css/styles.min.css') }}" />
+  
 </head>
 
 <body>
@@ -16,8 +17,8 @@
       <!-- Sidebar scroll-->
       <div>
         <div class="brand-logo d-flex align-items-center justify-content-between">
-          <a href="./index.html" class="text-nowrap logo-img">
-            <img src="modern/src/assets/images/logos/dark-logo.svg" width="180" alt="" />
+          <a href="{{ route('pasien.index') }}" class="text-nowrap logo-img">
+            <img src="{{ asset('modern/src/assets/images/logos/dark-logo.svg' ) }}" width="180" alt="" />
           </a>
           <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
             <i class="ti ti-x fs-8"></i>
@@ -31,7 +32,7 @@
               <span class="hide-menu">Home</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="pasien" aria-expanded="false">
+              <a class="sidebar-link" href="{{ route('pasien.index') }}" aria-expanded="false">
                 <span>
                   <i class="ti ti-user"></i>
                 </span>
@@ -43,7 +44,7 @@
               <span class="hide-menu">Tools</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="pasien/create" aria-expanded="false">
+              <a class="sidebar-link" href="{{asset('pasien/create')}}" aria-expanded="false">
                 <span>
                   <i class="ti ti-user"></i>
                 </span>
@@ -195,11 +196,11 @@
       </div>
     </div>
   </div>
-  <script src="modern/src/assets/libs/jquery/dist/jquery.min.js"></script>
-  <script src="modern/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="modern/src/assets/js/sidebarmenu.js"></script>
-  <script src="modern/src/assets/js/app.min.js"></script>
-  <script src="modern/src/assets/libs/simplebar/dist/simplebar.js"></script>
+  <script src="{{ asset('modern/src/assets/libs/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('modern/src/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('modern/src/assets/js/sidebarmenu.js') }}"></script>
+  <script src="{{ asset('modern/src/assets/js/app.min.js') }}"></script>
+  <script src="{{ asset('modern/src/assets/libs/simplebar/dist/simplebar.js') }}"></script>
 </body>
 
 </html>
