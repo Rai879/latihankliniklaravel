@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Daftar;
 use App\Http\Requests\StoreDaftarRequest;
 use App\Http\Requests\UpdateDaftarRequest;
-use Illuminate\Http\Request;
+use Illuminate\Http\Request; 
 
 class DaftarController extends Controller
 {
@@ -51,9 +51,10 @@ class DaftarController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Daftar $daftar)
+    public function show($id)
     {
-        //
+        $data['daftar'] = Daftar::findOrFail($id);
+        return view('daftar_show', $data);
     }
 
     /**
@@ -67,16 +68,26 @@ class DaftarController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateDaftarRequest $request, Daftar $daftar)
+    public function update(Request $request, $id)
     {
-        //
+        $requestData = $request->validate([
+            'diagnosis' => 'required',
+            'tindakan' => 'required',
+        ]);
+
+        $daftar = Daftar::findOrFail($id);
+        $daftar->fill($requestData);
+        $daftar->save();
+        return back()->with('success', 'Data berhasil diupdate');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Daftar $daftar)
+    public function destroy($id)
     {
-        //
+        $daftar = Daftar::findOrFail($id);
+        $daftar->delete();
+        return back()->with('success', 'Data berhasil dihapus');
     }
 }

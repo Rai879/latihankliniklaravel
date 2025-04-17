@@ -4,6 +4,9 @@
 <div class="card">
     <div class="card-body">
         <h3>Data Pendaftaran</h3>
+        @if(session('success'))
+            <p style="color: green">{{ session('success') }}</p>
+        @endif
         <a href="/daftar/create" class="btn btn-primary">Tambah Data</a>
         <table class="table table-stripped">
             <thead>
@@ -24,11 +27,11 @@
                         <td>{{ $item->pasien->nama }}</td>
                         <td>{{ $item->pasien->jenis_kelamin }}</td>
                         <td>{{ $item->tanggal_daftar}}</td>
-                        <td>{{ $item->poli }}</td>
+                        <td>{{ $item->poli_id }}</td>
                         <td>{{ $item->keluhan }}</td>
                         <td>
-                            <a href="/pasien/{{ $item->id }}/edit " class="btn btn-warning">Edit</a>
-                            <form action="/pasien/{{ $item->id }}" method="post" class="d-inline">
+                            <a href="/daftar/{{ $item->id }}" class="btn btn-info">Detail</a>
+                            <form action="/daftar/{{ $item->id }}" method="post" class="d-inline">
                                 @method('delete')
                                 @csrf
                                 <button type="submit" class="btn btn-danger" onclick="return confirm('Yakin Hapus Data?')">Hapus</button>
