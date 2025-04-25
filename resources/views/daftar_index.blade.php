@@ -4,6 +4,17 @@
 <div class="card">
     <div class="card-body">
         <h3>Data Pendaftaran</h3>
+        <form action="">
+        <div class="row g-3 mb-2">
+            <div class="col">
+              <input type="text" name="q" class="form-control" placeholder="ketik nama atau nomor pasien disini..." 
+              value="{{ request('q') }}" >
+            </div>
+            <div class="col">
+              <button type="submit" class="btn btn-primary">Cari</button>
+            </div>
+          </div>
+        </form>
         @if(session('success'))
             <p style="color: green">{{ session('success') }}</p>
         @endif

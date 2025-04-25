@@ -14,7 +14,12 @@ class DaftarController extends Controller
      */
     public function index()
     {
-        $data['daftar']= \App\Models\Daftar::latest()->paginate(10);
+        if (request()->filled('q')){
+            $data['daftar'] = \App\Models\Daftar::search(request('q'))->paginate(10);
+        } else {
+            $data['daftar'] = \App\Models\Daftar::latest()->paginate(10);
+        }
+
         return view("daftar_index" , $data);
     }
 
